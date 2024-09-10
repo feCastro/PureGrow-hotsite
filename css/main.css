@@ -308,6 +308,14 @@ p {
   margin-bottom: 20px;
 }
 
+p.nomargin, p:last-child {
+  margin: 0;
+}
+
+.right {
+  text-align: right;
+}
+
 #home article.info-block .wrapper {
   display: flex;
   align-items: center;
@@ -441,11 +449,6 @@ p {
   margin-bottom: 0;
 }
 
-#bioshield .wrapper figure {
-  border-radius: 30px;
-  overflow: hidden;
-}
-
 #bioshield .benefits {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -537,7 +540,7 @@ p {
 #technology {
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 50px;
 }
 
 #technology>div {
@@ -554,10 +557,29 @@ p {
 
 #technology h4 {
   font-size: 60px;
-  line-height: 1;
+  line-height: 45px;
   font-weight: 800;
   color: var(--green-dark);
-  margin: 0 0 10px;
+  margin: 0 0 15px;
+}
+
+#technology h4 small {
+  font-size: 38px;
+  font-weight: 500;
+  color: var(--black);
+}
+
+#technology .bigtag {
+  background-color: var(--green-light);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 26px;
+  text-align: right;
+  color: var(--white);
+  padding: 30px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  margin: 0px 50px 0;
 }
 
 #cases h4 {
@@ -605,6 +627,10 @@ p {
 #cases .downloads {
   display: flex;
   gap: 50px;
+}
+
+#cases .downloads > div {
+  flex: 1 1;
 }
 
 #cases .exlink a {
