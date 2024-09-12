@@ -1,0 +1,23 @@
+name: Deploy via SSH para GoDaddy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Configurar chave SSH
+        uses: webfactory/ssh-agent@v0.7.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Deploy via SSH para GoDaddy
+        run: |
+          ssh -o StrictHostKeyChecking=no seu_usuario@seu_servidor "cd /caminho/para/o/diretorio && git pull origin master"
