@@ -28,10 +28,11 @@ $(document).ready(function () {
 
     $header.find("." + $target).fadeIn();
 
+    $('#sidebar-toggle').prop('checked', false)
     
     setTimeout(() => {
       $("html, body").animate({ scrollTop: 0 }, "slow");
-    }, 100);
+    }, 350);
   });
 
   function hideInitialSections() {
