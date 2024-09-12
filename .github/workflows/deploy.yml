@@ -20,4 +20,4 @@ jobs:
 
       - name: Deploy via SSH para GoDaddy
         run: |
-          ssh -o StrictHostKeyChecking=no seu_usuario@seu_servidor "cd /caminho/para/o/diretorio && git pull origin master"
+          ssh -o StrictHostKeyChecking=no f2hk32yl4m0m@198.12.232.223 "cd /public_html && git pull origin master"
