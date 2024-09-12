@@ -1,4 +1,4 @@
-name: Deploy via SSH para GoDaddy
+name: Deploy para GoDaddy
 
 on:
   push:
