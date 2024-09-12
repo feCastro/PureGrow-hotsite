@@ -38,6 +38,12 @@ body {
   color: var(--black);
 }
 
+.lazzy {
+  position: absolute;
+  top: -10px;
+  width: 1px;
+}
+
 a {
   text-decoration: none;
 }
@@ -90,6 +96,7 @@ header {
   height: 756px;
   padding: 55px 180px 130px;
   border-radius: 40px;
+  background-size: cover;
   overflow: hidden;
   transition: all 1s ease-in-out;
 }
@@ -197,6 +204,7 @@ header.contact {
 
 main {
   padding: 60px 180px;
+  overflow: hidden;
 }
 
 article h4 {
@@ -341,7 +349,7 @@ p:last-child {
 
 .light-green h4,
 .light-green h3 {
-  color: var(--green-dark);
+  color: var(--green-light);
 }
 
 #home article {
@@ -499,15 +507,15 @@ p:last-child {
 #bioshield .benefit figure figcaption {
   font-size: 50px;
   font-weight: 700;
-  line-height: 45px;
+  line-height: 0.9;
   letter-spacing: -2px;
   color: var(--green-light);
   margin-top: 25px;
 }
 
 #bioshield .benefit figure figcaption strong {
-  font-size: 70px;
-  line-height: 40px;
+  font-size: 1.4em;
+  line-height: 0.571;
   letter-spacing: -5px;
   color: var(--green-dark);
   display: block;
@@ -515,7 +523,7 @@ p:last-child {
 }
 
 #bioshield .benefit figure figcaption .info {
-  font-size: 22px;
+  font-size: 0.44em;
   font-weight: 500;
   color: var(--green-dark);
   letter-spacing: normal;
@@ -525,7 +533,7 @@ p:last-child {
 }
 
 #bioshield .benefit figure figcaption small {
-  font-size: 16px;
+  font-size: 0.728em;
   font-weight: 500;
   color: var(--green-dark);
   letter-spacing: normal;
@@ -534,7 +542,6 @@ p:last-child {
 
 #bioshield .box img {
   margin: 0 auto;
-  border-radius: 40px;
 }
 
 #bioshield .top figure:first-of-type {
@@ -615,7 +622,7 @@ p:last-child {
   font-size: 30px;
   font-weight: 700;
   letter-spacing: -1px;
-  line-height: 34px;
+  line-height: 1.1;
   margin: 0;
 }
 
@@ -640,7 +647,7 @@ p:last-child {
 #cases .exlink a {
   color: var(--green-light);
   font-size: 24px;
-  line-height: 34px;
+  line-height: 1.1;
   font-weight: 700;
   text-decoration: underline;
 }
@@ -712,7 +719,7 @@ p:last-child {
   font-size: 42px;
   font-weight: 800;
   line-height: 50px;
-  color: var(--teal);
+  color: var(--green-dark);
   letter-spacing: -2px;
   margin: 0;
   max-width: 710px;
@@ -722,18 +729,18 @@ p:last-child {
 #contact .tel {
   font-size: 50px;
   font-weight: 800;
-  /* line-height: 34px; */
+  line-height: 1;
   letter-spacing: -2px;
-  color: var(--black);
+  color: var(--green-light);
   display: block;
 }
 
 #contact .mail {
   font-size: 32px;
   font-weight: 700;
-  line-height: 34px;
+  line-height: 1;
   letter-spacing: -1px;
-  color: var(--black);
+  color: var(--green-light);
   display: block;
 }
 
@@ -795,6 +802,358 @@ section:visible+section {
   padding-top: 90px;
 }
 
-.hide {
-  display: none !important;
+.mobile {
+  display: none;
+}
+
+.overlay {
+  display: none;
+}
+
+#sidebar-toggle {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .mobile {
+    display: block;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  .site-logo {
+    max-width: 200px;
+    margin-bottom: 20px;
+  }
+
+  .sidebar-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    margin: 9px;
+    padding: 20px 12px;
+    user-select: none;
+    cursor: pointer;
+    z-index: 9004;
+    -webkit-transition: all 450ms ease-in-out 7ms;
+    transition: all 450ms ease-in-out 7ms;
+  }
+
+  .sidebar-toggle .navicon {
+    position: relative;
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: var(--white);
+    -webkit-transition: all 150ms ease-out 0s;
+    transition: all 150ms ease-out 0s;
+  }
+
+  .sidebar-toggle .navicon::before,
+  .sidebar-toggle .navicon::after {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
+    -webkit-transition: all 150ms ease-out 0s;
+    transition: all 150ms ease-out 0s;
+  }
+
+  .sidebar-toggle .navicon::before {
+    top: -5px;
+  }
+
+  .sidebar-toggle .navicon::after {
+    top: 5px;
+  }
+
+  #sidebar-toggle:checked~nav {
+    right: 0;
+    box-shadow: -8px 0 9px #0007;
+  }
+
+  #sidebar-toggle:checked~.sidebar-toggle {
+    position: fixed;
+  }
+
+  #sidebar-toggle:checked~.sidebar-toggle .navicon {
+    background-color: transparent;
+  }
+
+  #sidebar-toggle:checked~.sidebar-toggle .navicon::before {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+
+  #sidebar-toggle:checked~.sidebar-toggle .navicon::after {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  #sidebar-toggle:checked~.overlay {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    visibility: hidden;
+    cursor: pointer;
+    z-index: 9002;
+    transition: all 350ms ease-in-out;
+  }
+
+  header {
+    border-radius: 0 0 15px 15px;
+    padding: 20px;
+    height: 100vh;
+  }
+
+  header nav {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    height: 100%;
+    flex-direction: column;
+    text-align: right;
+    margin: 0;
+    padding: 60px;
+    width: 300px;
+    background-color: var(--green-dark);
+    box-shadow: 0 0 0 #0007;
+    transition: all 350ms ease-in-out;
+    z-index: 9003;
+  }
+
+  header nav * {
+    transition: all 350ms ease-in-out;
+  }
+
+  header nav a {
+    display: block;
+    padding: 10px 20px;
+  }
+
+  header h1 {
+    font-size: 50px;
+    line-height: 1;
+  }
+
+  header h2 {
+    font-size: 22px;
+    line-height: 1;
+  }
+
+  main {
+    padding: 50px 20px;
+  }
+
+  #home article,
+  #home article.info-block,
+  #bioshield .wrapper,
+  #bioshield .benefits {
+    grid-template-columns: 1fr;
+  }
+
+  #home article>div+div {
+    margin-top: 20px;
+  }
+
+  article h4,
+  h4,
+  .info-block h5,
+  #bioshield .top h4,
+  #bioshield h5,
+  #technology h4,
+  #cases h4,
+  #certifications h4,
+  #contact h4 {
+    font-size: 30px;
+    line-height: 1.2;
+    margin: 10px 0;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  figure.grow {
+    margin: 0;
+  }
+
+  figure.round img {
+    border-radius: 15px;
+  }
+
+  #home figcaption,
+  #technology .bigtag {
+    margin: -10px 0 0;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    font-size: 16px;
+    line-height: 1.4;
+    z-index: -1;
+  }
+
+  #home h3 {
+    font-size: 36px;
+  }
+
+  #home article.info-block {
+    border-radius: 15px;
+  }
+
+  .info-block>figure {
+    display: none;
+  }
+
+  #home article.info-block>div {
+    padding: 20px;
+  }
+
+  #home article.info-block .wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #home article.info-block .nav-btn {
+    align-self: flex-start;
+  }
+
+  #bioshield .top {
+    flex-direction: column;
+    height: unset;
+  }
+
+  #bioshield .benefits {
+    padding: 20px;
+  }
+
+  #bioshield .benefit figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #bioshield .benefit figure figcaption {
+    font-size: 30px;
+    text-align: center;
+  }
+
+  #bioshield .benefit::before {
+    width: 100%;
+    left: 0;
+  }
+
+  #bioshield .benefit.nobottom::before {
+    display: block;
+  }
+
+  #bioshield .benefit.nobottom:last-of-type::before {
+    display: none;
+  }
+
+  #bioshield .benefit::after {
+    display: none;
+  }
+
+  #technology>div {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #technology h4 {
+    margin-top: 0;
+  }
+
+  #technology {
+    gap: 20px;
+  }
+
+  #technology .text+figure,
+  #technology figure+.text {
+    margin-top: 20px;
+  }
+
+  #technology>div:nth-of-type(odd) figure {
+    order: -1;
+  }
+
+  #cases .dotted {
+    margin-bottom: 30px;
+  }
+
+  #cases .dotted img {
+    max-height: 40px;
+  }
+
+  #cases .exlink {
+    flex-direction: column;
+  }
+
+  #cases h5 {
+    font-size: 20px;
+  }
+
+  #cases .exlink a {
+    font-size: 18px;
+    word-wrap: break-word;
+  }
+
+  #cases .downloads {
+    flex-direction: column;
+  }
+
+  #certifications .wrapper {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  #certifications .wrapper>figure {
+    flex-basis: auto;
+  }
+
+  #certifications .wrapper:nth-of-type(even)>figure {
+    order: -1;
+  }
+
+  #certifications .wrapper>div {
+    gap: 0;
+  }
+
+  #contact {
+    min-height: 580px;
+    background-size: 100% auto;
+  }
+
+  #contact .tel {
+    font-size: 40px;
+  }
+
+  #contact .mail {
+    font-size: 27px;
+  }
+
+  footer {
+    padding: 20px 40px;
+    border-radius: 15px 15px 0px 0px;
+  }
+
+  footer nav {
+    display: none;
+  }
 }
