@@ -4,8 +4,9 @@
   --white: #ffffff;
   --black: #222518;
   --gray: #7b7b7b;
+  --green-highlight: #c5f718;
   --green-light: #71b548;
-  --green-dark: #19604e;
+  --green-dark: #18604e;
   --teal: #359a83;
   --teal-light: #5bbaa6;
   --blue: #2eace4;
@@ -60,7 +61,7 @@ figure.grow {
   margin-right: -80px;
 }
 
-#home figcaption {
+#home .light-blue figcaption {
   background-color: var(--blue-light);
   font-size: 20px;
   font-weight: 600;
@@ -112,7 +113,7 @@ header .nav-area {
   align-items: flex-end;
   margin-top: auto;
   margin-left: auto;
-  max-width: 440px;
+  max-width: 635px;
   color: var(--white);
   text-align: right;
   transition: all 2s ease-in-out;
@@ -137,6 +138,7 @@ header .nav-area {
   display: none;
   margin-left: unset;
   text-align: left;
+  max-width: 400px;
 }
 
 .header-wrapper.certifications {
@@ -163,7 +165,7 @@ header nav a {
 }
 
 header h1 {
-  font-size: 100px;
+  font-size: 88px;
   line-height: 84px;
   text-shadow: 8px 8px 9px #0007;
   margin: 0;
@@ -209,6 +211,7 @@ main {
 
 article h4 {
   font-size: 42px;
+  letter-spacing: -0.055em;
   font-weight: 700;
   line-height: 40px;
   margin-top: 0;
@@ -217,6 +220,7 @@ article h4 {
 
 article h3 {
   font-size: 60px;
+  letter-spacing: -0.055em;
   font-weight: 800;
   line-height: 50px;
   margin-top: 30px;
@@ -248,7 +252,7 @@ article h3 {
   right: -55px;
   content: "";
   display: block;
-  background-image: url(../img/line-v.svg);
+  background-image: url(../img/line2-v.svg);
   width: 3px;
   height: 100%;
   z-index: 2;
@@ -300,14 +304,14 @@ article h3 {
   display: none;
 }
 
-#home h3::after {
+/* #home h3::after {
   content: "";
   display: block;
   background-image: url(../img/line.svg);
   height: 3px;
   flex-grow: 1;
   margin-left: 20px;
-}
+} */
 
 p {
   margin: 0;
@@ -338,18 +342,27 @@ p:last-child {
 
 .nav-btn {
   padding: 10px 17px;
-  background: #7e9441;
+  background: var(--green-highlight);
   display: flex;
   border-radius: 10px;
   font-size: 22px;
   font-weight: 800;
   letter-spacing: -1px;
-  color: #eedcd0;
+  color: var(--green-dark);
 }
 
 .light-green h4,
-.light-green h3 {
+.light-green h3,
+h4.light-green,
+h3.light-green {
   color: var(--green-light);
+}
+
+.dark-green h4,
+.dark-green h3,
+h4.dark-green,
+h3.dark-green {
+  color: var(--green-dark);
 }
 
 #home article {
@@ -359,11 +372,16 @@ p:last-child {
   margin-bottom: 20px;
 }
 
+#home article.benefits-wrapper {
+  display: block;
+}
+
 #home article.info-block {
-  background-color: #eedcd0;
+  background-image: url(../img/info-block.jpg);
+  background-size: cover;
   border-radius: 30px;
   margin-top: 50px;
-  grid-template-columns: 450px 550px;
+  grid-template-columns: auto;
   column-gap: 0;
 }
 
@@ -372,11 +390,12 @@ p:last-child {
 }
 
 #home article.info-block>div {
-  padding: 50px 60px 0 0;
+  padding: 50px 60px 50px 0;
+  margin-left: 450px;
 }
 
 #home article.info-block p {
-  color: var(--gray);
+  color: var(--white);
   letter-spacing: -1px;
 }
 
@@ -384,7 +403,7 @@ p:last-child {
   font-size: 40px;
   line-height: 1;
   font-weight: 700;
-  color: var(--yellow-dark);
+  color: var(--green-highlight);
   margin: 0 0 10px;
 }
 
@@ -398,7 +417,7 @@ p:last-child {
   height: 3px;
 }
 
-#bioshield .top {
+.benefits-wrapper .top {
   display: flex;
   align-items: center;
   column-gap: 70px;
@@ -406,7 +425,7 @@ p:last-child {
   height: 268px;
 }
 
-#bioshield .top>* {
+.benefits-wrapper .top>* {
   flex: 1 0 auto;
   position: relative;
   height: 100%;
@@ -414,7 +433,7 @@ p:last-child {
   align-items: center;
 }
 
-#bioshield .top>*::after {
+.benefits-wrapper .top>*::after {
   position: absolute;
   top: 0;
   right: -36px;
@@ -426,11 +445,11 @@ p:last-child {
   z-index: 2;
 }
 
-#bioshield .top>*:last-child::after {
+.benefits-wrapper .top>*:last-child::after {
   display: none;
 }
 
-#bioshield .top h4 {
+.benefits-wrapper .top h4 {
   font-size: 51px;
   font-weight: 800;
   letter-spacing: -2px;
@@ -440,39 +459,39 @@ p:last-child {
   color: var(--green-light);
 }
 
-#bioshield h5 {
-  font-size: 42px;
+.benefits-wrapper h5 {
+  font-size: 60px;
   font-weight: 700;
   letter-spacing: -2px;
   line-height: 40px;
-  color: var(--green-dark);
+  color: var(--green-light);
   margin-top: 0px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
-#bioshield .wrapper {
+.benefits-wrapper .wrapper {
   display: grid;
-  grid-template-columns: 410px auto;
+  grid-template-columns: 420px auto;
   column-gap: 50px;
   margin: 40px 0;
 }
 
-#bioshield .wrapper p {
+.benefits-wrapper .wrapper p {
   margin-bottom: 0;
 }
 
-#bioshield .benefits {
+.benefits-wrapper .benefits {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 60px;
   padding: 30px 50px 60px;
 }
 
-#bioshield .benefit {
+.benefits-wrapper .benefit {
   position: relative;
 }
 
-#bioshield .benefit::before {
+.benefits-wrapper .benefit::before {
   position: absolute;
   bottom: -30px;
   left: -30px;
@@ -484,11 +503,11 @@ p:last-child {
   z-index: 2;
 }
 
-#bioshield .benefit.nobottom::before {
+.benefits-wrapper .benefit.nobottom::before {
   display: none;
 }
 
-#bioshield .benefit::after {
+.benefits-wrapper .benefit::after {
   position: absolute;
   top: -30px;
   right: -25px;
@@ -500,11 +519,11 @@ p:last-child {
   z-index: 2;
 }
 
-#bioshield .benefit.noright::after {
+.benefits-wrapper .benefit.noright::after {
   display: none;
 }
 
-#bioshield .benefit figure figcaption {
+.benefits-wrapper .benefit figure figcaption {
   font-size: 50px;
   font-weight: 700;
   line-height: 0.9;
@@ -513,7 +532,7 @@ p:last-child {
   margin-top: 25px;
 }
 
-#bioshield .benefit figure figcaption strong {
+.benefits-wrapper .benefit figure figcaption strong {
   font-size: 1.4em;
   line-height: 0.571;
   letter-spacing: -5px;
@@ -522,7 +541,7 @@ p:last-child {
   margin-bottom: 15px;
 }
 
-#bioshield .benefit figure figcaption .info {
+.benefits-wrapper .benefit figure figcaption .info {
   font-size: 0.44em;
   font-weight: 500;
   color: var(--green-dark);
@@ -532,7 +551,7 @@ p:last-child {
   margin-top: 10px;
 }
 
-#bioshield .benefit figure figcaption small {
+.benefits-wrapper .benefit figure figcaption small {
   font-size: 0.728em;
   font-weight: 500;
   color: var(--green-dark);
@@ -540,11 +559,11 @@ p:last-child {
   display: block;
 }
 
-#bioshield .box img {
+.benefits-wrapper .box img {
   margin: 0 auto;
 }
 
-#bioshield .top figure:first-of-type {
+.benefits-wrapper .top figure:first-of-type {
   flex-basis: 265px;
 }
 
@@ -557,13 +576,19 @@ p:last-child {
 #technology>div {
   display: flex;
   column-gap: 40px;
+  row-gap: 20px;
+  flex-wrap: wrap;
 }
 
 #technology>div>* {
   flex: 1 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+}
+
+.full { 
+  flex: 1 0 100% !important;
 }
 
 #technology h4 {
@@ -814,6 +839,10 @@ section:visible+section {
   display: none;
 }
 
+.gap {
+  gap: 13px;
+}
+
 @media (max-width: 1200px) {
   .mobile {
     display: block;
@@ -963,8 +992,8 @@ section:visible+section {
 
   #home article,
   #home article.info-block,
-  #bioshield .wrapper,
-  #bioshield .benefits {
+  .benefits-wrapper .wrapper,
+  .benefits-wrapper .benefits {
     grid-template-columns: 1fr;
   }
 
@@ -975,8 +1004,8 @@ section:visible+section {
   article h4,
   h4,
   .info-block h5,
-  #bioshield .top h4,
-  #bioshield h5,
+  .benefits-wrapper .top h4,
+  .benefits-wrapper h5,
   #technology h4,
   #cases h4,
   #certifications h4,
@@ -999,7 +1028,7 @@ section:visible+section {
     border-radius: 15px;
   }
 
-  #home figcaption,
+  #home .light-blue figcaption,
   #technology .bigtag {
     margin: -10px 0 0;
     border-bottom-right-radius: 15px;
@@ -1015,6 +1044,7 @@ section:visible+section {
 
   #home article.info-block {
     border-radius: 15px;
+    background-position: right;
   }
 
   .info-block>figure {
@@ -1023,6 +1053,7 @@ section:visible+section {
 
   #home article.info-block>div {
     padding: 20px;
+    margin-left: 0;
   }
 
   #home article.info-block .wrapper {
@@ -1034,40 +1065,40 @@ section:visible+section {
     align-self: flex-start;
   }
 
-  #bioshield .top {
+  .benefits-wrapper .top {
     flex-direction: column;
     height: unset;
   }
 
-  #bioshield .benefits {
+  .benefits-wrapper .benefits {
     padding: 20px;
   }
 
-  #bioshield .benefit figure {
+  .benefits-wrapper .benefit figure {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  #bioshield .benefit figure figcaption {
+  .benefits-wrapper .benefit figure figcaption {
     font-size: 30px;
     text-align: center;
   }
 
-  #bioshield .benefit::before {
+  .benefits-wrapper .benefit::before {
     width: 100%;
     left: 0;
   }
 
-  #bioshield .benefit.nobottom::before {
+  .benefits-wrapper .benefit.nobottom::before {
     display: block;
   }
 
-  #bioshield .benefit.nobottom:last-of-type::before {
+  .benefits-wrapper .benefit.nobottom:last-of-type::before {
     display: none;
   }
 
-  #bioshield .benefit::after {
+  .benefits-wrapper .benefit::after {
     display: none;
   }
 
